@@ -31,6 +31,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .successForwardUrl("/home")
-                .defaultSuccessUrl("/home");
+                .defaultSuccessUrl("/home", true)
+                .and()
+                .rememberMe()
+                .rememberMeCookieName("remember")
+                .tokenValiditySeconds(86400);
     }
 }

@@ -8,17 +8,17 @@
 <body>
 <div class = "main">
     <div class = "container">
-        <div class = "registerform">
+        <div class = "loginregisterform">
             <form th:action="@{/register}"
                   method="post">
-                <label for="username">mail</label>:
+                <label for="username">E-Mail:</label><br>
                 <input type="Email" id="username" name="username"
                        class  = "forminp"/> <br /><br>
-                <label for="password">Password</label>:
+                <label for="password">Password:</label><br>
                 <input type="password" id="password" name="password"
                        class  = "forminp"/> <br /><br>
-                <label for="githubLink">GitHub profile link</label>
-                <input type="text" id="githubLink" name="githubLink">
+                <label for="githubLink">GitHub profile link:</label>
+                <input type="text" id="githubLink" name="githubLink" class="forminp"/> <br></br>
                 <div class = "form-btns">
                     <input type="submit" value="Register" />
                 </div>
