@@ -18,6 +18,16 @@ public class RegisterService {
 
     public void register(ApplicationUser newUser){
 
+        if(newUser == null){
+
+            throw new IllegalArgumentException();
+
+        }else if(applicationUserRepository.findByUsername(newUser.getUsername()).equals(newUser)){
+
+            throw new IllegalArgumentException();
+
+        }
+
         newUser.setPassword(sufixConfig.getPasswordEncoder().encode(newUser.getPassword()));
         applicationUserRepository.save(newUser);
 
