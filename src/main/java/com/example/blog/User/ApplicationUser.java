@@ -1,5 +1,7 @@
 package com.example.blog.User;
 
+import com.sun.istack.NotNull;
+import org.hibernate.mapping.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,12 +16,21 @@ public class ApplicationUser implements UserDetails {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "UserID")
   private long userId;
+
+  @Column(name = "Username")
   private String username;
+
+  @Column(name = "Password")
   private String password;
+
+  @Column(name = "GithubLink")
+  @NotNull
   private String githubLink;
-  private long posts;
-  private String userRole;
+
+  @Column(name = "Posts")
+  private List postsList;
 
   public ApplicationUser(String username, String password, String githubLink) {
     this.username = username;
@@ -70,7 +81,7 @@ public class ApplicationUser implements UserDetails {
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+    return Collections.singleton(new SimpleGrantedAuthority("USER_ROLE"));
   }
 
   public String getPassword() {
@@ -90,22 +101,11 @@ public class ApplicationUser implements UserDetails {
     this.githubLink = githubLink;
   }
 
-
-  public long getPosts() {
-    return posts;
+  public List getPostsList() {
+    return postsList;
   }
 
-  public void setPosts(long posts) {
-    this.posts = posts;
+  public void setPostsList(List postsList) {
+    this.postsList = postsList;
   }
-
-
-  public String getUserRole() {
-    return userRole;
-  }
-
-  public void setUserRole(String userRole) {
-    this.userRole = userRole;
-  }
-
 }

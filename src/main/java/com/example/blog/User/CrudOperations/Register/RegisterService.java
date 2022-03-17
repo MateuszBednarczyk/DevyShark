@@ -1,4 +1,4 @@
-package com.example.blog.User.CRUDOperations.Register;
+package com.example.blog.User.CrudOperations.Register;
 
 import com.example.blog.Configuration.SufixConfig;
 import com.example.blog.User.ApplicationUser;
@@ -19,10 +19,6 @@ public class RegisterService {
     public void register(ApplicationUser newUser){
 
         if(newUser == null){
-
-            throw new IllegalArgumentException();
-
-        }else if(applicationUserRepository.findByUsername(newUser.getUsername()).equals(newUser)){
 
             throw new IllegalArgumentException();
 
