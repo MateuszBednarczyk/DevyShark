@@ -9,7 +9,7 @@
 <div class = "main">
     <div class = "container">
         <div class = "loginregisterform">
-            <form th:action="@{/register}"
+            <form th:action="@{/login}"
                   method="post">
                 <label for="username">E-Mail:</label><br>
                 <input type="Email" id="username" name="username"
@@ -19,7 +19,7 @@
                        class  = "forminp"/> <br /><br>
                 <div class = "form-btns">
                     <input type="submit" value="Login" />
-                    <a href="/register"><input type="Button" value="Register"></a>
+                    <a href="/register"><button type="button" class="login">Register</button></a>
                 </div>
             </form>
         </div>
