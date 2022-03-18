@@ -11,6 +11,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "postid")
     private long PostID;
 
     @NotNull
