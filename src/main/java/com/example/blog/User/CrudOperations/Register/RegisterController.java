@@ -15,15 +15,13 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String showRegistrarionForm(Model model){
-        ApplicationUser applicationUser = new ApplicationUser();
-        model.addAttribute("applicationUser", applicationUser);
+    public String showRegistrarionForm(){
         return "register.html";
     }
 
 
     @PostMapping("/register")
-    public String register(@ModelAttribute ApplicationUser applicationUser, Model model){
+    public String register(@ModelAttribute ApplicationUser applicationUser){
 
         registerService.register(applicationUser);
         return "redirect:/login";

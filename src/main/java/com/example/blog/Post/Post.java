@@ -1,7 +1,7 @@
 package com.example.blog.Post;
 
-import com.example.blog.User.ApplicationUser;
 import com.sun.istack.NotNull;
+import org.hibernate.mapping.List;
 
 import javax.persistence.*;
 
@@ -13,9 +13,35 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long PostID;
 
-    @ManyToOne
     @NotNull
-    private ApplicationUser author;
+    private String author;
 
+    @NotNull
+    private String postContent;
 
+    private List postComments;
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPostContent() {
+        return postContent;
+    }
+
+    public void setPostContent(String postContent) {
+        this.postContent = postContent;
+    }
+
+    public List getPostComments() {
+        return postComments;
+    }
+
+    public void setPostComments(List postComments) {
+        this.postComments = postComments;
+    }
 }
